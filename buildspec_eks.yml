@@ -19,16 +19,16 @@ phases:
   pre_build:
     commands:
       - echo Logging into Amazon EKS...
-      - aws eks update-kubeconfig --name jaadugar-eks --region ap-south-1
+      - aws eks update-kubeconfig --region ap-south-1 --name jaadugar-eks
       - echo check config 
       - kubectl config view --minify
       - echo check kubectl access
       - kubectl get svc
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 653470767467.dkr.ecr.ap-south-1.amazonaws.com
-      - REPOSITORY_URI=653470767467.dkr.ecr.ap-south-1.amazonaws.com/t20
-      - echo $653470767467.dkr.ecr.ap-south-1.amazonaws.com/t20:latest
-      - docker pull 653470767467.dkr.ecr.ap-south-1.amazonaws.com/t20:latest
+      - REPOSITORY_URI=653470767467.dkr.ecr.ap-south-1.amazonaws.com/jadugar-image
+      - echo $653470767467.dkr.ecr.ap-south-1.amazonaws.com/jadugar-image:latest
+      - docker pull 653470767467.dkr.ecr.ap-south-1.amazonaws.com/jadugar-image:latest
       
 
   build:
