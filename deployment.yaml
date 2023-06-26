@@ -1,25 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app.kubernetes.io/name: cicd-demo
-    app.kubernetes.io/instance: cicd-demo-instance
-    app.kubernetes.io/version: '1.0.0'
-    app.kubernetes.io/managed-by: kubectl
-  name: cicd-demo-deployment
+  namespace: jadugar
+  name: jadugar-deployment
 spec:
-  replicas: 1
+  replicas: 1  # Number of replicas/instances to run
   selector:
     matchLabels:
-      app: cicd-demo
+      app: jadugar
   template:
     metadata:
       labels:
-        app: cicd-demo
+        app: jadugar
     spec:
       containers:
-        - image: docker pull 653470767467.dkr.ecr.ap-south-1.amazonaws.com/t20:latest
-          imagePullPolicy: Always
-          name: cicd-demo
+        - name: jadugar
+          image: 653470767467.dkr.ecr.ap-south-1.amazonaws.com/jadugar-image:latest  # Replace with your ECR repository URI and image tag
           ports:
-            - containerPort: 3000
+            - containerPort: 3000 # Port on which your React app listens
