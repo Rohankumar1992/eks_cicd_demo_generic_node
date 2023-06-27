@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: jadugar
-          image: 653470767467.dkr.ecr.ap-south-1.amazonaws.com/jadugar-image:latest  # Replace with your ECR repository URI and image tag
+          image: 653470767467.dkr.ecr.ap-south-1.amazonaws.com/rohan:latest  # Replace with your ECR repository URI and image tag
           ports:
             - containerPort: 3000 # Port on which your React app listens
